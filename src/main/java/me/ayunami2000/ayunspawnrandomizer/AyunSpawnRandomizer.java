@@ -13,8 +13,18 @@ import java.util.Random;
 public final class AyunSpawnRandomizer extends JavaPlugin implements Listener {
     private static final Random random = new Random();
 
+    private static int minX,minZ,maxX,maxZ,y;
+    private static World world;
+
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        minX = getConfig().getInt("min.x");
+        minZ = getConfig().getInt("min.z");
+        maxX = getConfig().getInt("max.x");
+        maxZ = getConfig().getInt("max.z");
+        y = getConfig().getInt("y");
+        world = getServer().getWorld(getConfig().getString("world"));
         getServer().getPluginManager().registerEvents(this, this);
     }
 
@@ -28,10 +38,10 @@ public final class AyunSpawnRandomizer extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event){
-        event.setRespawnLocation(randomLocation(event.getRespawnLocation().getWorld()));
+        event.setRespawnLocation(randomLocation(world));
     }
 
     private static Location randomLocation(World world){
-        return new Location(world, random.nextInt(100000) - 50000, 100, random.nextInt(100000) - 50000);
+        return new Location(world, random.nextInt(maxX - minX) + minX, y, random.nextInt(maxZ - minZ) + minZ);
     }
 }
