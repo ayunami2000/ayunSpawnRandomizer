@@ -32,6 +32,6 @@ public final class AyunSpawnRandomizer extends JavaPlugin implements Listener {
     }
 
     private static Location randomLocation(World world){
-        return new Location(world, random.nextInt(1000000) - 500000, 100, random.nextInt(1000000) - 500000);
+        return new Location(world, random.nextInt(100000) - 50000, 100, random.nextInt(100000) - 50000);
     }
 }
