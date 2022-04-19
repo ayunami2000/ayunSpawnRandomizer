@@ -1,0 +1,7 @@
+name: ayunSpawnRandomizer
+version: '${project.version}'
+main: me.ayunami2000.ayunspawnrandomizer.AyunSpawnRandomizer
+api-version: 1.17
+load: STARTUP
+authors: [ ayunami2000 ]
+description: randomize spawn today!
