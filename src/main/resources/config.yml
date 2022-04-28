@@ -1,8 +1,22 @@
+# initial bounds. ignored after loaded chunks are greater than 40.
 min:
   x: -3584
   z: -3072
 max:
   x: 3071
   z: 2559
+# tp height
 y: 100
+# tp world
 world: "world"
+# how many chunks to randomly tp to before starting to reuse already loaded chunks
+loaded: 40
+# how big of an area to check around a chunk to ensure the surrounding chunks are loaded
+# currently unused
+radius: 5
+# how often to update safe loaded chunk array (ms)
+# currently unused
+often: 10000
+# max number of chunks to iterate before ignoring the rest
+# currently unused
+limit: 10000
